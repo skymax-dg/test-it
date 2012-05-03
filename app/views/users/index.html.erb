@@ -1,0 +1,13 @@
+<h1><%= @title %></h1>
+
+<%= link_to "Genera Elenco utenti (PDF)", :action => "export_users_pdf" %>
+____
+<%= link_to "Esporta Elenco utenti (XLS)", :action => "export_users_xls" %>
+
+<%= will_paginate %>
+
+<u1 class="users" >
+  <%= render @users %>
+</u1>
+
+<%= will_paginate %>

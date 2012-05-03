@@ -1,0 +1,30 @@
+<% if signed_in?%>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost"> What's up? </h1>
+        <%= render 'shared/micropost_form' %>
+        <%= link_to "Export posts (PDF)", {:controller => 'users', :action => 'exp_posts_by_user_pdf',
+                                           :id => current_user.id} %>
+        _____
+        <%= link_to "Export postsID (XLS)", {:controller => 'users', :action => 'exp_posts_by_user_xls',
+                                             :id => current_user.id}%>
+        <%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+        <%= render 'shared/stats' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Sample App esempio</h1>
+
+  <p>
+    This is the home page for the
+    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </p>
+
+  <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end if %>
